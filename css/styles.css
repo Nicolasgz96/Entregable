@@ -64,7 +64,7 @@ button:hover {
   margin-bottom: 0;
   background-color: #53C0FB;
   background: url('../img/login.png');
-  background-size: cover;
+  /* background-size: cover; */
   background-position: top;
   background-repeat: no-repeat;
   /* color: black;
