@@ -19,6 +19,58 @@
   font-weight: bold;
 }
 
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#plogin {
+  color: black;
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+#nmsiez{
+  font-size: 0,1em;
+}
+
+.jumbotronn {
+  height: 50vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background-color: #53C0FB;
+  background: url('../img/login.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  /* color: black;
+  font-weight: bold; */
+}
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: 6rem;
@@ -79,6 +131,10 @@ footer p {
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+.text-center{
+  background-color: rgb(245, 246, 246);
 }
 
 .lds-ring {
