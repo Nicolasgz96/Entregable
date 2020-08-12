@@ -44,23 +44,23 @@ function showCategoriesList(){
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))){
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                        <span class="align-bottom">` +"Total vendido:"+" "+ product.soldCount + `</span>
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
+                htmlContentToAppend += `
+                <a href="product-info.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                         </div>
-                        <p class="mb-1">` + product.description + `</p>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">`+ product.name +`</h4>
+                                <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
+                            </div>
+                            <p class="mb-1">` + product.description + `</p>
+                            <span class="align-bottom">` +"Total vendido:"+" "+ product.soldCount + `</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            `
+                </a>
+                `
         }
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
