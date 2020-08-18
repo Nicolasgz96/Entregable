@@ -23,8 +23,8 @@ function sortCategories(criteria, array){
         });
     }else if (criteria === ORDER_BY_PROD_COUNT){
         result = array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
+            let aCount = parseInt(a.productcost);
+            let bCount = parseInt(b.productcost);
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
@@ -41,8 +41,8 @@ function showCategoriesList(){
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let product = currentCategoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
                 htmlContentToAppend += `
                 <a href="product-info.html" class="list-group-item list-group-item-action">
