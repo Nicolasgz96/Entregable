@@ -64,7 +64,7 @@ button:hover {
   margin-bottom: 0;
   background-color: #53C0FB;
   background: url('../img/login.png');
-  /* background-size: cover; */
+  background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   /* color: black;
@@ -100,6 +100,27 @@ button:hover {
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+#textoPreguntas {
+  margin: 0rem 0rem 1rem 10rem;
+}
+
+#google{
+  margin: 0rem 0rem 0rem 28rem;
+}
+
+#info-mail {
+  margin: 0rem 50rem 0rem 10rem;
+}
+
+#preguntasBoton{
+  color:white;
+  background-color: lightblue;
+}
+
+#preguntas {
+  margin: 0rem 3rem 0rem 10rem;
 }
 
 footer p {

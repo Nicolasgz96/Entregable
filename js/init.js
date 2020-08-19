@@ -40,12 +40,19 @@ var getJSONData = function(url){
     });
 }
 
-console.log(location.href);
+
+console.log(location.href);//esta funcion hace que si no esta en login.html me redireccione a esa pagina
   if(!location.href.endsWith('login.html')&&!(sessionStorage.getItem('visitado') === 'true')){
     window.location.href='login.html';
   };
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  function correcto(e){
+    alert("mensaje enviado");
+  }
+  getElementById("preguntaVendedor").addEventListener('submit', correcto);
+  
 });

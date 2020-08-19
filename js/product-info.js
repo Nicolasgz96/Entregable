@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productScore3HTML = document.getElementById("productScore3");
             let productCriteriaaa3HTML = document.getElementById("productCriteriaaa3");
             let productDate3HTML = document.getElementById("productDate3");
-        
+            
             productNameHTML.innerHTML = "Nombre:"+" "+category[0].user;
             productScoreHTML.innerHTML = "Puntuación:"+" "+category[0].score;
             productCriteriaaaHTML.innerHTML = "Comentario:"+" "+ category[0].description;
