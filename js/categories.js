@@ -134,3 +134,50 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+//funcion para buscador
+const catIngresado = document.getElementById("elBuscadaCat");
+const resultado = document.getElementById("cat-list-container");
+
+const filtrar = ()=>{
+
+    const texto = catIngresado.value.toLowerCase();
+    resultado.innerHTML = '';
+
+    for(let categoria of currentCategoriesArray){
+        let nombre = categoria.name.toLowerCase();
+        let descripcion = categoria.description.toLowerCase();
+        if(nombre.indexOf(texto)!== -1 || descripcion.indexOf(texto) !== -1){
+            
+            resultado.innerHTML += `
+            <a href="category-info.html" class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + categoria.imgSrc + `" alt="` + categoria.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ categoria.name +`</h4>
+                        <small class="text-muted">` + categoria.productCount + ` artículos</small>
+                    </div>
+                    <p class="mb-1">` + categoria.description + `</p>
+                </div>
+            </div>
+        </a>
+            `
+        }
+    }
+    if(resultado.innerHTML === ''){
+        resultado.innerHTML += `
+       
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">`+ "No se encontro el resultado deseado...." +`</h4>    
+                </div>   
+            </div>
+        </div>
+  
+        `
+    }
+}
+catIngresado.addEventListener('keypress',filtrar);

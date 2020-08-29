@@ -1,12 +1,14 @@
+var nomUsuario = document.getElementById("usuario");
 function logg(e){
   e.preventDefault();//previene un bucle entre las paginas de html y login
   sessionStorage.setItem('visitado', 'true');
+  localStorage.setItem("usuario", nomUsuario.value);//guardo el valor que en este caso es el nombre de usuario
   window.location.href = 'index.html';
   return true;
 }
 
 document.getElementById("rediregir").addEventListener('submit', logg);
-
+//funcion de google sign-in
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -16,7 +18,7 @@ function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   console.log(id_token);
 }
-
+//funcion de google sign-out
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
