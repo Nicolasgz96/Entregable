@@ -1,6 +1,8 @@
 const ORDER_ASC_BY_PRICE = "Precios Bajos";//creo las contantes y las variables globales para después utilizarlas 
 const ORDER_DESC_BY_PRICE = "Precios Altos";
 const ORDER_BY_PROD_COUNT = "Mas Relevantes";
+const buscador = document.getElementById("elBuscador");
+const resultado = document.getElementById("cat-list-container");
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -140,9 +142,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 //funcion para buscador
-const buscador = document.getElementById("elBuscador");
-const resultado = document.getElementById("cat-list-container");
-
 const filtrar = ()=>{
 
     const texto = buscador.value.toLowerCase();
@@ -174,12 +173,11 @@ const filtrar = ()=>{
     }
     if(resultado.innerHTML === ''){
         resultado.innerHTML += `
-        
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">`+ "El Producto no fue encontrado..." +`</h4>
                     </div>
-                   
+           
         `
     }
 }

@@ -59,6 +59,11 @@ font-size: 0,1em;
 width: fit-content;
 }
 
+#elBuscadaCat{
+font-size: 0,1em;
+width: fit-content;
+}
+
 .jumbotronn {
 height: 50vh;
 /* padding: 5em inherit; */
@@ -70,6 +75,10 @@ background-position: top;
 background-repeat: no-repeat;
 color: black;
 font-weight: bold;
+}
+
+.outset{
+  border-style: outset;
 }
 
 @media (min-width: 768px) {
