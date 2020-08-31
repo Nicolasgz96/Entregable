@@ -40,7 +40,7 @@ function sortCategories(criteria, array){
 
 function showCategoriesList(){
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){//uso un for para que pase por cada uno de los elementos de los array
+    for(let i = 0; i < currentCategoriesArray.length; i++){
         let product = currentCategoriesArray[i];
         //aca en el if declaro que si ingreso un valor en los campos de mincount y maxcount me devuelvan un entero con el parseInt ya que comprueba el array donde le específico ir
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) && 

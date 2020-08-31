@@ -77,6 +77,26 @@ color: black;
 font-weight: bold;
 }
 
+.border{
+  border-style: ridge;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.main {
+  position: absolute;
+  right: 0;
+  width: 30em; 
+} 
+
+.checked{
+  color: orange;
+}
+
+.align{
+  text-align: right;
+}
+
 .outset{
   border-style: outset;
 }

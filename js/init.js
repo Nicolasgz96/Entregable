@@ -50,20 +50,7 @@ console.log(location.href);//esta funcion hace que si no esta en login.html me r
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    var mandoMensaje = "Usted mando el mensaje correctamente"//es el mensaje que quiero que aparezca
-    var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
-    let infoMissing = false;//declaro un booleano 
 
-    function getMail(){//funcion para que valide si se envio el mensaje (e-mail)
-      if(form_id===""){//se fija si los campos estan vacios
-        (form_id.classList.add('is-invalid'))//si estan vacios el formulario
-        infoMissing = true;//pide que ingreses los campos
-      }else{
-        (!infoMissing);//si no estan vacios
-        return alert(mandoMensaje);//mando la alerta
-      }
-  };
-document.getElementById('preguntaVendedor').addEventListener('submit', getMail);//agrega un evento para el boton submit con la funcion de arriba
 });
 
   var nombre = 'Tu Perfil: ';//creo string para que no aparezca solo el nombre que ingrese el ususario

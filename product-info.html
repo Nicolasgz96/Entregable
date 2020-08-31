@@ -62,37 +62,69 @@
         </dd>
         <dt class="outset">Puntuación y comentarios:</dt>
         <br>
+        <div class="border">
         <p id="productName"></p>
         <p id="productScore"></p>
         <p id="productCriteriaaa"></p>
-        <p id="productDate"></p> 
-<hr color="grey" size=3 >
-      <div>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <p class="align" id="productDate"></p> 
+      </div>
+
+      <div class="border">
         <p id="productName1"></p>
         <p id="productScore1"></p>
         <p id="productCriteriaaa1"></p>
-        <p id="productDate1"></p> 
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <p class="align" id="productDate1"></p> 
       </div>
-<hr color="grey" size=3 >
-    <div>
+
+    <div class="border">
       <p id="productName2"></p>
       <p id="productScore2"></p>
       <p id="productCriteriaaa2"></p>
-      <p id="productDate2"></p>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <p class="align" id="productDate2"></p>
     </div>
-<hr color="grey" size=3 >
-      <div>
+
+      <div class="border">
         <p id="productName3"></p>
         <p id="productScore3"></p>
         <p id="productCriteriaaa3"></p>
-        <p id="productDate3"></p> 
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <p class="align" id="productDate3"></p>         
     </div>
-<hr color="black" size=3>
+    <div id="natural">   
+  </div>
+<br>
   <form action="" id="preguntaVendedor">
-  <p id="textoPreguntas">A continuación puede dejar su pregunta con su email, para que el vendedor le responda.</p>
-    <input type="email" name="email" class="form-control" placeholder="E-mail" required> 
-    <textarea name="mensaje" class="form-control" cols="50" rows="" placeholder="Envie su pregunta aquí" required></textarea>
-    <input type="submit" class="btn btn-primary btn-lg" value="Enviar">
+  <p id="textoPreguntas">A continuación puede dejar su comentario con su nombre, para que puedan ver su recomendacion.</p>
+    <input type="name" name="email" class="form-control" placeholder="Nombre" required> 
+    <textarea name="mensaje" class="form-control" cols="50" id="mensajeEnviado" rows="" placeholder="Deje su comentario aquí" required></textarea>
+    <input type="datetime-local" name="" id="" required><br>
+    <div class="main">
+    <span class="fa fa-star checked" onmouseover="starmark(this)" onclick=""starmark(this) id="1" aria-required="true"></span>
+    <span class="fa fa-star unchecked" onmouseover="starmark(this)" onclick=""starmark(this) id="2" aria-required="true"></span>
+    <span class="fa fa-star unchecked" onmouseover="starmark(this)" onclick=""starmark(this) id="3" aria-required="true"></span>
+    <span class="fa fa-star unchecked" onmouseover="starmark(this)" onclick=""starmark(this) id="4" aria-required="true"></span>
+    <span class="fa fa-star unchecked" onmouseover="starmark(this)" onclick=""starmark(this) id="5" aria-required="true"></span>
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg" value="Enviar"> 
     <br>
     <br>
     <a type="button" class="btn btn-light btn-lg btn-block" href="index.html">Seguir Comprando</a>

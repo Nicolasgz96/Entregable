@@ -70,19 +70,19 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productDate3HTML = document.getElementById("productDate3");
             
             productNameHTML.innerHTML = "Nombre:"+" "+category[0].user;
-            productScoreHTML.innerHTML = "Puntuación:"+" "+category[0].score;
+            // productScoreHTML.innerHTML = "Puntuación:"+" "+category[0].score;
             productCriteriaaaHTML.innerHTML = "Comentario:"+" "+ category[0].description;
             productDateHTML.innerHTML = "Fecha y hora:"+" "+category[0].dateTime;
             productName1HTML.innerHTML = "Nombre:"+" "+category[1].user;
-            productScore1HTML.innerHTML = "Puntuación:"+" "+category[1].score;
+            // productScore1HTML.innerHTML = "Puntuación:"+" "+category[1].score;
             productCriteriaaa1HTML.innerHTML = "Comentario:"+" "+ category[1].description;
             productDate1HTML.innerHTML = "Fecha y hora:"+" "+category[1].dateTime;
             productName2HTML.innerHTML = "Nombre:"+" "+category[2].user;
-            productScore2HTML.innerHTML = "Puntuación:"+" "+category[2].score;
+            // productScore2HTML.innerHTML = "Puntuación:"+" "+category[2].score;
             productCriteriaaa2HTML.innerHTML = "Comentario:"+" "+ category[2].description;
             productDate2HTML.innerHTML = "Fecha y hora:"+" "+category[2].dateTime;
             productName3HTML.innerHTML = "Nombre:"+" "+category[3].user;
-            productScore3HTML.innerHTML = "Puntuación:"+" "+category[3].score;
+            // productScore3HTML.innerHTML = "Puntuación:"+" "+category[3].score;
             productCriteriaaa3HTML.innerHTML = "Comentario:"+" "+ category[3].description;
             productDate3HTML.innerHTML = "Fecha y hora:"+" "+category[3].dateTime;
             
@@ -91,4 +91,40 @@ document.addEventListener("DOMContentLoaded", function(e){
             // showImagesGallery(category.images);
         }
     });
+});
+
+var rating = "";
+function starmark(item){
+    var count = item.id[0];
+    rating = count;
+    var subid = item.id.substring(1);
+    for(let i = 0; i < 5; i++){
+        if(i < count){
+            document.getElementById((i+1)+subid).style.color="orange";
+        }else{
+            document.getElementById((i+1)+subid).style.color="black";
+        }
+    }
+}
+
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function(e){
+    var mandoMensaje = "Usted mando el mensaje correctamente"//es el mensaje que quiero que aparezca
+    var ratinMensaj = " su rating es de "
+    var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
+    let infoMissing = false;//declaro un booleano 
+
+    function getMail(){//funcion para que valide si se envio el mensaje (e-mail)
+      if(form_id===""){//se fija si los campos estan vacios
+        (form_id.classList.add('is-invalid'))//si estan vacios el formulario
+        infoMissing = true;//pide que ingreses los campos
+      }else{
+        (!infoMissing);//si no estan vacios
+        return alert(mandoMensaje + ratinMensaj + rating + " Estrellas.");//mando la alerta
+      }
+  };
+document.getElementById('preguntaVendedor').addEventListener('submit', getMail);//agrega un evento para el boton submit con la funcion de arriba
 });
