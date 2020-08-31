@@ -112,7 +112,7 @@ function starmark(item){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-    var mandoMensaje = "Usted mando el mensaje correctamente"//es el mensaje que quiero que aparezca
+    var mandoMensaje = "Usted mando el mensaje correctamente,"//es el mensaje que quiero que aparezca
     var ratinMensaj = " su rating es de "
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
     let infoMissing = false;//declaro un booleano 
