@@ -33,6 +33,7 @@
         <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
           seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
       </div>
+      <div id="imgAutos"></div>
       <h3 id="categoryName"></h3>
       <hr class="my-3">
       <h4 id="categoryNamee"></h4>
@@ -59,8 +60,8 @@
         <dt>Productos relacionados:</dt>
         <dd>
           <a href="products.html"><p id="productCriteriaa"></p></a>
-        </dd>
-        <dt class="outset">Puntuación y comentarios:</dt>
+        </dd><br>
+        <dt class="outset">Caja de comentarios y puntuación:</dt>
         <br>
         <div class="border">
         <p id="productName"></p>
@@ -72,7 +73,7 @@
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
         <p class="align" id="productDate"></p> 
-      </div>
+      </div><br>
 
       <div class="border">
         <p id="productName1"></p>
@@ -84,7 +85,7 @@
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
         <p class="align" id="productDate1"></p> 
-      </div>
+      </div><br>
 
     <div class="border">
       <p id="productName2"></p>
@@ -96,7 +97,7 @@
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>
       <p class="align" id="productDate2"></p>
-    </div>
+    </div><br>
 
       <div class="border">
         <p id="productName3"></p>
@@ -109,22 +110,28 @@
         <span class="fa fa-star checked"></span>
         <p class="align" id="productDate3"></p>         
     </div>
-    <div id="natural">   
-  </div>
+ <br>
+<label type="text" id="nombre"></label><br>                          
+<label type="text" id="apellido"></label><br>
+<span  id="estrellas"></span><br>
+<p class="align" id="fechas"></p><br>
+
 <br>
   <form action="" id="preguntaVendedor">
   <p id="textoPreguntas">A continuación puede dejar su comentario con su nombre, para que puedan ver su recomendacion.</p>
-    <input type="name" name="email" class="form-control" placeholder="Nombre y Apellido" required> 
-    <textarea name="mensaje" class="form-control" cols="50" id="mensajeEnviado" rows="" placeholder="Deje su comentario aquí" required></textarea>
-    <input type="datetime-local" name="" id="" required><br>
+    <input type="name" id="input-name" name="name" class="form-control" placeholder="Nombre y Apellido" required> <br>
+    <textarea name="mensaje" class="form-control" cols="50" id="mensajeEnviado" rows="" placeholder="Deje su comentario aquí..." required></textarea><br>
+    <hr class="mb-4">
+    <label for="date" class="row-md-2 row-form-label">Ingresar la fecha y su calificación:</label><br>
     <div class="main">
-    <span class="fa fa-star checked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="1" aria-required="true"></span>
-    <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="2" aria-required="true"></span>
-    <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="3" aria-required="true"></span>
-    <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="4" aria-required="true"></span>
-    <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="5" aria-required="true"></span>
-    </div>
-    <input type="submit" class="btn btn-primary btn-lg" value="Enviar"> 
+      <span class="fa fa-star   checked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="1"></span>
+      <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="2"></span>
+      <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="3"></span>
+      <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="4"></span>
+      <span class="fa fa-star unchecked" onmouseover="starmarck(this)" onclick=""starmarck(this) id="5"></span>
+      </div>
+    <input type="datetime-local" name="date" id="date" required><br>
+    <button type="submit" id="submitVendedor" class="btn btn-primary btn-lg" value="Enviar">Enviar</button>
     <br>
     <br>
     <a type="button" class="btn btn-light btn-lg btn-block" href="index.html">Seguir Comprando</a>
