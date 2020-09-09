@@ -10,12 +10,10 @@ function showImagesGallery(array){
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
         `
-
-        
     }
     document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
@@ -82,10 +80,9 @@ document.addEventListener("DOMContentLoaded", function(e){
             
         }
     });
-    
 });
 
-//funcion para la funcionalidad de las estrellas
+//funcion para el ranking de estrellas
 var rating = "";
 function starmarck(element){
     var count = element.id[0];
@@ -100,7 +97,12 @@ function starmarck(element){
     }
 }
 
-//esta funcion es para que el usuario vea con una alerta que mando su mensaje
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+//esta funcion es para cuando el usuario va a dejar su mensaje
+document.addEventListener("DOMContentLoaded", function(e){
     var mandoMensaje = "Usted mando el mensaje correctamente,"//es el mensaje que quiero que aparezca
     var ratinMensaj = " su rating es de "
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
@@ -111,35 +113,27 @@ function starmarck(element){
         (form_id.classList.add('is-invalid'))//si estan vacios el formulario
         infoMissing = true;//pide que ingreses los campos
       }else{
-       (!infoMissing);//si no estan vacios
-       return alert(mandoMensaje + ratinMensaj + rating + " Estrellas.");//mando la alerta
+        (!infoMissing);//si no estan vacios
+        return alert(mandoMensaje + ratinMensaj + rating + " Estrellas.");//mando la alerta
       }
   };
 document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
+});
 
 
-//funcion para que se muestre el mensaje en el html
-
-document.addEventListener("submit", function(e){
+document.addEventListener('submit', function(e){
     e.preventDefault();
-    var nombreData = document.getElementById('input-name').value;
-    var comentData = document.getElementById('mensajeEnviado').value;
-    var fechaData = document.getElementById('date').value;
-    localStorage.setItem("nombre", nombreData);
-    localStorage.setItem("comentario", comentData);
-    localStorage.setItem("fecha", fechaData);
-    var elNombre = localStorage.getItem("nombre");
-    var elComentario = localStorage.getItem("comentario");
-    var laFecha = localStorage.getItem("fecha");
-    document.getElementById("nombre").innerHTML = elNombre;
-    document.getElementById("apellido").innerHTML = elComentario; 
-    document.getElementById("fechas").innerHTML = laFecha;
-    document.getElementById('estrellas').innerHTML = "Tu puntuacion: " + rating ;
-});
-
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(){
-});
+    var elNombre = document.getElementById('input-name').value;
+    var elComentario = document.getElementById('mensajeEnviado').value;
+    var laFecha = document.getElementById('date').value;
+    localStorage.setItem("nombre", elNombre);
+    localStorage.setItem("comentario", elComentario);
+    localStorage.setItem("fecha", laFecha);
+    var name = localStorage.getItem("nombre");
+    var coment = localStorage.getItem("comentario");
+    var tiempo = localStorage.getItem("fecha");
+    document.getElementById('nombre').innerHTML = name;
+    document.getElementById('apellido').innerHTML = coment;
+    document.getElementById('estrellas').innerHTML = "Tu Puntuacion es: " + rating;
+    document.getElementById('fechas').innerHTML = tiempo;
+})
