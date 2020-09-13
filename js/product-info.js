@@ -14,8 +14,6 @@ function showImagesGallery(array){
             </div>
         </div>
         `
-
-        
     }
     document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
@@ -108,14 +106,24 @@ document.addEventListener("DOMContentLoaded", function(e){
             </div> 
         
             `
+
         }
         document.getElementById("productCriteriaa").innerHTML = htmlContentToAppend
     }
  })   
 });
 
+
 //esta funcion es para que el usuario vea con una alerta que mando su mensaje
     var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+//esta funcion es para cuando el usuario va a dejar su mensaje
+document.addEventListener("DOMContentLoaded", function(e){
+    var mandoMensaje = "Usted mando el mensaje correctamente,"//es el mensaje que quiero que aparezca
+    var ratinMensaj = " su rating es de "
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
     let infoMissing = false;//declaro un booleano 
 
@@ -129,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       }
   };
 document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
+
 
 
 //funcion para que se muestre el mensaje en el html
@@ -181,4 +190,6 @@ document.addEventListener("submit", function(e){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(){
 })
+});
+
 
