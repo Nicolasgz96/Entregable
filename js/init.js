@@ -41,7 +41,7 @@ var getJSONData = function(url){
 }
 
 
-console.log(location.href);//esta funcion hace que si no esta en login.html me redireccione a esa pagina
+  //esta funcion hace que si no esta en login.html me redireccione a esa pagina
   if(!location.href.endsWith('login.html')&&!(sessionStorage.getItem('visitado') === 'true')){
     window.location.href='login.html';
   };

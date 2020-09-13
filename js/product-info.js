@@ -1,5 +1,5 @@
-var category = {};
 
+//funcion que muestra las imagenes
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -10,121 +10,175 @@ function showImagesGallery(array){
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+            <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        
     }
+    document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    //muestra la info del auto seleccionado
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            category = resultObj.data;
+            productInfo = resultObj.data;
+            console.log(productInfo);
 
-            let categoryNameHTML  = document.getElementById("categoryName");
-            let categoryNameeHTML  = document.getElementById("categoryNamee");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
+            let productNameHTML  = document.getElementById("categoryName");
+            let productNameeHTML  = document.getElementById("categoryNamee");
+            let productDescriptionHTML = document.getElementById("categoryDescription");
             let productCountHTML = document.getElementById("productCount");
             let productCriteriaHTML = document.getElementById("productCriteria");
-            let productCriteriaaHTML = document.getElementById("productCriteriaa");
         
-            categoryNameHTML.innerHTML = category.category;
-            categoryNameeHTML.innerHTML = category.name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.cost+ " " +category.currency;
-            productCriteriaHTML.innerHTML = category.soldCount;
-            productCriteriaaHTML.innerHTML = category.relatedProducts;
+            productNameHTML.innerHTML = productInfo.category;
+            productNameeHTML.innerHTML = productInfo.name;
+            productDescriptionHTML.innerHTML = productInfo.description;
+            productCountHTML.innerHTML = productInfo.cost+ " " +productInfo.currency;
+            productCriteriaHTML.innerHTML = productInfo.soldCount;
+           
             
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(category.images);
+            showImagesGallery(productInfo.images);
         }
     });
+
+    //muestra los comentarios
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            category = resultObj.data;
-
-            let productNameHTML = document.getElementById("productName");
-            let productScoreHTML = document.getElementById("productScore");
-            let productCriteriaaaHTML = document.getElementById("productCriteriaaa");
-            let productDateHTML = document.getElementById("productDate");
-            let productName1HTML = document.getElementById("productName1");
-            let productScore1HTML = document.getElementById("productScore1");
-            let productCriteriaaa1HTML = document.getElementById("productCriteriaaa1");
-            let productDate1HTML = document.getElementById("productDate1");
-            let productName2HTML = document.getElementById("productName2");
-            let productScore2HTML = document.getElementById("productScore2");
-            let productCriteriaaa2HTML = document.getElementById("productCriteriaaa2");
-            let productDate2HTML = document.getElementById("productDate2");
-            let productName3HTML = document.getElementById("productName3");
-            let productScore3HTML = document.getElementById("productScore3");
-            let productCriteriaaa3HTML = document.getElementById("productCriteriaaa3");
-            let productDate3HTML = document.getElementById("productDate3");
-            
-            productNameHTML.innerHTML = "Nombre:"+" "+category[0].user;
-            // productScoreHTML.innerHTML = "Puntuación:"+" "+category[0].score;
-            productCriteriaaaHTML.innerHTML = "Comentario:"+" "+ category[0].description;
-            productDateHTML.innerHTML = "Fecha y hora:"+" "+category[0].dateTime;
-            productName1HTML.innerHTML = "Nombre:"+" "+category[1].user;
-            // productScore1HTML.innerHTML = "Puntuación:"+" "+category[1].score;
-            productCriteriaaa1HTML.innerHTML = "Comentario:"+" "+ category[1].description;
-            productDate1HTML.innerHTML = "Fecha y hora:"+" "+category[1].dateTime;
-            productName2HTML.innerHTML = "Nombre:"+" "+category[2].user;
-            // productScore2HTML.innerHTML = "Puntuación:"+" "+category[2].score;
-            productCriteriaaa2HTML.innerHTML = "Comentario:"+" "+ category[2].description;
-            productDate2HTML.innerHTML = "Fecha y hora:"+" "+category[2].dateTime;
-            productName3HTML.innerHTML = "Nombre:"+" "+category[3].user;
-            // productScore3HTML.innerHTML = "Puntuación:"+" "+category[3].score;
-            productCriteriaaa3HTML.innerHTML = "Comentario:"+" "+ category[3].description;
-            productDate3HTML.innerHTML = "Fecha y hora:"+" "+category[3].dateTime;
-            
-
-            //Muestro las imagenes en forma de galería
-            // showImagesGallery(category.images);
+            product = resultObj.data;
+        let htmlContentToAppend = "";
+        for(let i = 0; i < product.length; i++){
+            let producto = product[i];
+    
+            htmlContentToAppend +=`
+            <p>
+            <div class="border">                          
+            <p class="card-title"> <span class="nombre">` + producto.user +`</span></p>                
+            <p class="card-text">` + producto.description + `</p> 
+            `
+            for(let z = 0; z < 5; z++){
+                if(z >= producto.score){
+                    htmlContentToAppend+=`<p class="fa fa-star">`
+                }else{
+                    htmlContentToAppend+=`<p class="fa fa-star checked">`
+                }
+            }
+            htmlContentToAppend+=`    
+            <p <span class="align">`+ producto.dateTime +`</span> </p>                                                         
+            </div>
+            </p>
+        
+            `
         }
+        document.getElementById("container comentarios").innerHTML = htmlContentToAppend;   
+    };
+
     });
+    
+    //Muestra los productos relacionados
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            product = resultObj.data;
+            console.log(product);
+            let htmlContentToAppend = "";
+            for(let i = 0; i < productInfo.relatedProducts.length; i++){
+                let productos = product[productInfo.relatedProducts[i]];
+
+            htmlContentToAppend +=`
+            <div class="col-lg-3 col-md-4 col-6">  
+                <div class="d-block mb-4 h-100"> 
+                <a href="product-info.html?`+ productos.name +`">
+                        <img class="img-fluid img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
+                    </a>                       
+                  <h4 class="mb-1">`+productos.name+`</h4>
+                    <p class="mb-1">`+productos.description+`</p>
+                    <p class="mb-1">`+productos.cost+" "+productos.currency+`</p>
+                </div>
+            </div> 
+        
+            `
+        }
+        document.getElementById("productCriteriaa").innerHTML = htmlContentToAppend
+    }
+ })   
 });
 
-var rating = "";
-function starmarck(element){
-    var count = element.id[0];
-    rating = count;
-    var subid = element.id.substring(1);
-    for(let i = 0; i < 5; i++){
-        if(i < count){
-            document.getElementById((i+1)+subid).style.color="orange";
-        }else{
-            document.getElementById((i+1)+subid).style.color="black";
-        }
-    }
-}
-
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    var mandoMensaje = "Usted mando el mensaje correctamente,"//es el mensaje que quiero que aparezca
-    var ratinMensaj = " su rating es de "
+//esta funcion es para que el usuario vea con una alerta que mando su mensaje
+    var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
     let infoMissing = false;//declaro un booleano 
 
-    function getMail(){//funcion para que valide si se envio el mensaje (e-mail)
+    function getComent(){//funcion para que valide si se envio el mensaje (e-mail)
       if(form_id===""){//se fija si los campos estan vacios
         (form_id.classList.add('is-invalid'))//si estan vacios el formulario
         infoMissing = true;//pide que ingreses los campos
       }else{
-        (!infoMissing);//si no estan vacios
-        return alert(mandoMensaje + ratinMensaj + rating + " Estrellas.");//mando la alerta
+       (!infoMissing);//si no estan vacios
+       return alert(mandoMensaje);//mando la alerta
       }
   };
-document.getElementById('preguntaVendedor').addEventListener('submit', getMail);//agrega un evento para el boton submit con la funcion de arriba
+document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
+
+
+//funcion para que se muestre el mensaje en el html
+
+document.addEventListener("submit", function(e){
+    e.preventDefault();
+    var elNombre = localStorage.getItem("nombre");
+    var comentData = document.getElementById('mensajeEnviado').value;
+    var valor = localStorage.getItem("usuario")
+    var hoy = new Date();
+    var date = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+    var hora = new Date();
+    var time = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
+    localStorage.setItem("nombre", valor);
+    localStorage.setItem("comentario", comentData);
+    contenedorDeEstrellas = document.createElement('div');
+    contenedorDeEstrellas.classList.add('estrellas');
+    contenedorDeEstrellas.innerHTML =  `
+    <span class="fa fa-star " ></span>
+    <span class="fa fa-star " ></span>
+    <span class="fa fa-star" ></span>
+    <span class="fa fa-star" ></span>
+    <span class="fa fa-star" ></span>
+    ` ;
+    let htmlContentToAppend = "";
+    htmlContentToAppend +=`
+    <p>
+    <div class="border">                           
+    <p class="card-title"> <span class="nombre">` + elNombre +`</span></p>                
+    <p class="card-text">` + comentData + `</p> 
+    <p <span id="estrellas"> 
+    <p <span class="align">` + date + " " + time +`</span> </p>                                                             
+    </div>
+    </p>
+    `;
+    document.getElementById("container comentarios").innerHTML += htmlContentToAppend;  
+    var estrellas = contenedorDeEstrellas.getElementsByClassName('fa-star');
+    var calificacion = document.getElementById('calificacion').value;
+    for(let i = 0; i < 5; i++){
+        if(i < calificacion){
+         estrellas[i].classList.add('checked')
+        }
+    }
+    document.getElementById("estrellas").appendChild(contenedorDeEstrellas);
 });
+
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function(){
+})
+
