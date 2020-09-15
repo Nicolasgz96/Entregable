@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             productInfo = resultObj.data;
-            console.log(productInfo);
 
             let productNameHTML  = document.getElementById("categoryName");
             let productNameeHTML  = document.getElementById("categoryNamee");
@@ -88,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                 if (resultObj.status === "ok")
                 {
                     product = resultObj.data;
-                    console.log(product);
                     let htmlContentToAppend = "";
                     for(let i = 0; i < productInfo.relatedProducts.length; i++){
                         let productos = product[productInfo.relatedProducts[i]];
