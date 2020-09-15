@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                     `
                 }
                 document.getElementById("container comentarios").innerHTML = htmlContentToAppend;   
-            };
+            }
 
-            });
+            })
      
             //Muestra los productos relacionados
             getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 document.getElementById("productCriteriaa").innerHTML = htmlContentToAppend
             }
         })   
-    });
+    })
 });
+    
 
 //esta funcion es para que el usuario vea con una alerta que mando su mensaje
     var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca
