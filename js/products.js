@@ -47,7 +47,7 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){   
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html?`+ product.name +`" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -63,11 +63,9 @@ function showCategoriesList(){
                 </div>
             </a>
             `
-        }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-        
+        }        
     }
+    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
 }
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
@@ -181,5 +179,5 @@ const filtrar = ()=>{
         `
     }
 }
-buscador.addEventListener('keypress',filtrar);
+buscador.addEventListener('keyup',filtrar);
 

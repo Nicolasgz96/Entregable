@@ -41,7 +41,7 @@ var getJSONData = function(url){
 }
 
 
-console.log(location.href);//esta funcion hace que si no esta en login.html me redireccione a esa pagina
+  //esta funcion hace que si no esta en login.html me redireccione a esa pagina
   if(!location.href.endsWith('login.html')&&!(sessionStorage.getItem('visitado') === 'true')){
     window.location.href='login.html';
   };
@@ -50,19 +50,21 @@ console.log(location.href);//esta funcion hace que si no esta en login.html me r
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
 });
 
-  var nombre = 'Tu Perfil: ';//creo string para que no aparezca solo el nombre que ingrese el ususario
-  var valor = localStorage.getItem("usuario");//guardo el dato del usuario
-  const Perfil = document.querySelector('nav.site-header > div');//le digo donde quiero que se ingresen los datos
-
-  function crearPerfil(tuPerfil){//creo una funcion para proceder a guardar los datos y asi crear el perfil
-    let a = document.createElement('a');//asigno el elemento que deseo crear
-    a.setAttribute("class", "py-2 d-none d-md-inline-block");//le asigno los atributos
-    a.setAttribute("href", "my-profile.html");//le asigno los atributos
-    a.textContent = nombre + tuPerfil;
-    return  a;
-  }
-
- Perfil.appendChild(crearPerfil(valor));//devuelve y crea los atributos y valores del mismo para poder crear el perfil y almacenar el valor del usuario
+  
+var valor = localStorage.getItem("usuario");//guardo el dato del usuario
+var div1 = document.createElement("div");
+div1.setAttribute("class","dropdown");
+var htmlcontent= `
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                `+valor+`
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="my-profile.html">Tu perfil</a>
+                <a class="dropdown-item" href="cart.html">Carrito</a>
+                <a class="dropdown-item" href="login.html" onclick=borrardatos() >Cerrar sesión</a>
+              </div>
+            `
+div1.innerHTML= htmlcontent;
+document.querySelectorAll('nav.site-header > div')[0].appendChild(div1);
