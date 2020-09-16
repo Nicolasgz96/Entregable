@@ -150,29 +150,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     })
 });
    
-//por si tengo que usar este JSON para mandar el mensaje
-
-// getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
-//     if(resultObj.status === "ok"){
-//         mesagge = resultObj.data;
-//     }
-//     //esta funcion es para que el usuario vea con una alerta que mando su mensaje
-//     var mandoMensaje = mesagge.msg//es el mensaje que quiero que aparezca
-//     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
-//     let infoMissing = false;//declaro un booleano 
-
-//     function getComent(){//funcion para que valide si se envio el mensaje (e-mail)
-//       if(form_id===""){//se fija si los campos estan vacios
-//         (form_id.classList.add('is-invalid'))//si estan vacios el formulario
-//         infoMissing = true;//pide que ingreses los campos
-//       }else{
-//        (!infoMissing);//si no estan vacios
-//        return alert(mandoMensaje);//mando la alerta
-//       }
-//   };
-// document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
-// })
-
 //esta funcion es para que el usuario vea con una alerta que mando su mensaje
     var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
