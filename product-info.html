@@ -53,7 +53,7 @@
         </dd>
         <dt class="outset">Imágenes ilustrativas</dt><br>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          <div  id="productImagesGallery">
           </div> <br>
         </dd>
         <dt  class="outset">Productos relacionados:</dt> <br>
@@ -77,7 +77,7 @@
     <hr class="mb-4">
   <p id="textoPreguntas">A continuación puede dejar su comentario con su puntuación, para que puedan ver su recomendación.</p>
      <br>
-     <input class="form-control" type="number" min="1" max="5" placeholder="Deje su puntuación" id="calificacion"> <br>
+     <input class="form-control" type="number" min="1" max="5" placeholder="Deje su puntuación del 1/5..." id="calificacion" required> <br>
      <textarea name="mensaje" class="form-control" cols="50" id="mensajeEnviado" rows="" placeholder="Deje su comentario aquí..." required></textarea><br> 
     <button type="submit" id="submitVendedor" class="btn btn-primary btn-lg" value="Enviar">Enviar</button>
     <br>
@@ -96,10 +96,6 @@
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>

@@ -3,23 +3,59 @@
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
+    let indicator = "";
+    let imagenes = "";
+    let imagesToApend = "";
 
-    for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
+        htmlContentToAppend = `
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+             <ol id="indicadores" class="carousel-indicators">
+            </ol>
+        <div id="verImagens" class="carousel-inner">
+        </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
         `
 
-        
-    }
     document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-}
 
+    for(let i = 0; i < array.length; i++){
+        if (i == 0){
+            indicator=`
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            `
+        }else{
+            indicator+=`
+            <li data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>
+            `
+        }
+        for(let i = 0; i < array.length; i++){
+            imagenes = array[i];
+            if (i == 0){
+                imagesToApend =`
+                <div class="carousel-item active">
+                    <img src="`+imagenes+`" class="d-block " alt="">
+                 </div>
+                `
+            }else{imagesToApend +=`
+            <div class="carousel-item">
+                <img src="`+imagenes+`" class="d-block" alt="">
+            </div>
+            `
+
+            }
+        }
+    }
+    document.getElementById("indicadores").innerHTML = indicator;
+    document.getElementById("verImagens").innerHTML = imagesToApend;
+};
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -36,18 +72,21 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productDescriptionHTML = document.getElementById("categoryDescription");
             let productCountHTML = document.getElementById("productCount");
             let productCriteriaHTML = document.getElementById("productCriteria");
+
+            //agarro la URL y les paso el nombre al HTML
+            let params = new URLSearchParams(location.search);
+            var nombreProd = params.get('producto');
         
             productNameHTML.innerHTML = productInfo.category;
-            productNameeHTML.innerHTML = productInfo.name;
+            productNameeHTML.innerHTML = nombreProd;
             productDescriptionHTML.innerHTML = productInfo.description;
             productCountHTML.innerHTML = productInfo.cost+ " " +productInfo.currency;
             productCriteriaHTML.innerHTML = productInfo.soldCount;
-           
-            
-
+                      
             //Muestro las imagenes en forma de galería
             showImagesGallery(productInfo.images);
         }
+
         //muestra los comentarios
             getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
                 if (resultObj.status === "ok")
@@ -110,7 +149,29 @@ document.addEventListener("DOMContentLoaded", function(e){
         })   
     })
 });
-    
+   
+//por si tengo que usar este JSON para mandar el mensaje
+
+// getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
+//     if(resultObj.status === "ok"){
+//         mesagge = resultObj.data;
+//     }
+//     //esta funcion es para que el usuario vea con una alerta que mando su mensaje
+//     var mandoMensaje = mesagge.msg//es el mensaje que quiero que aparezca
+//     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
+//     let infoMissing = false;//declaro un booleano 
+
+//     function getComent(){//funcion para que valide si se envio el mensaje (e-mail)
+//       if(form_id===""){//se fija si los campos estan vacios
+//         (form_id.classList.add('is-invalid'))//si estan vacios el formulario
+//         infoMissing = true;//pide que ingreses los campos
+//       }else{
+//        (!infoMissing);//si no estan vacios
+//        return alert(mandoMensaje);//mando la alerta
+//       }
+//   };
+// document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
+// })
 
 //esta funcion es para que el usuario vea con una alerta que mando su mensaje
     var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca

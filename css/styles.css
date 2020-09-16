@@ -64,6 +64,14 @@ font-size: 0,1em;
 width: fit-content;
 }
 
+#productImagesGallery{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  
+}
+
 .jumbotronn {
 height: 50vh;
 /* padding: 5em inherit; */
