@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     htmlContentToAppend +=`
                     <div class="col-lg-3 col-md-4 col-6">  
                         <div class="d-block mb-4 h-100"> 
-                        <a href="product-info.html?`+ productos.name +`">
+                        <a href="product-info.html?producto=`+ productos.name +`">
                                 <img class="img-fluid img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
                             </a>                       
                         <h4 class="mb-1">`+productos.name+`</h4>
