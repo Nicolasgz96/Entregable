@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             
         }
 
-       
 
         //muestra los comentarios
             getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
@@ -98,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                 let htmlContentToAppend = "";
                 for(let i = 0; i < product.length; i++){
                     let producto = product[i];
-            
                     htmlContentToAppend +=`
                     <p>
                     <div class="border">                          
@@ -137,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="col-lg-3 col-md-4 col-6">  
                         <div class="d-block mb-4 h-100"> 
                         <a href="product-info.html?producto=`+ productos.name +`">
-                                <img class="img-fluid img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
+                                <img class="img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
                             </a>  
                             <div class="card">                     
                             <h4 class="mb-1">`+productos.name+`</h4>
@@ -176,15 +174,13 @@ document.getElementById('preguntaVendedor').addEventListener('submit', getComent
 
 document.addEventListener("submit", function(e){
     e.preventDefault();
-    var elNombre = localStorage.getItem("nombre");
+    localStorage.setItem("comentario", comentData);
     var comentData = document.getElementById('mensajeEnviado').value;
-    var valor = localStorage.getItem("usuario")
+    var elNombre = localStorage.getItem("usuario");
     var hoy = new Date();
     var date = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
     var hora = new Date();
     var time = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
-    localStorage.setItem("nombre", valor);
-    localStorage.setItem("comentario", comentData);
     contenedorDeEstrellas = document.createElement('div');
     contenedorDeEstrellas.classList.add('estrellas');
     contenedorDeEstrellas.innerHTML =  `
@@ -200,7 +196,7 @@ document.addEventListener("submit", function(e){
     <div class="border">                           
     <p class="card-title"> <span class="nombre">` + elNombre +`</span></p>                
     <p class="card-text">` + comentData + `</p> 
-    <p <span id="estrellas"> 
+    <p <span id="estrellas" > 
     <p <span class="align">` + date + " " + time +`</span> </p>                                                             
     </div>
     </p>
