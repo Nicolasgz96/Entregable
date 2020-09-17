@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let params = new URLSearchParams(location.search);
             var nombreProd = params.get('producto');
         
-            productNameHTML.innerHTML = productInfo.category;
+            productNameHTML.innerHTML = productInfo.category; 
             productNameeHTML.innerHTML = nombreProd;
             productDescriptionHTML.innerHTML = productInfo.description;
             productCountHTML.innerHTML = productInfo.cost+ " " +productInfo.currency;
@@ -85,7 +85,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                       
             //Muestro las imagenes en forma de galería
             showImagesGallery(productInfo.images);
+            
         }
+
+       
 
         //muestra los comentarios
             getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
@@ -102,8 +105,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <p class="card-title"> <span class="nombre">` + producto.user +`</span></p>                
                     <p class="card-text">` + producto.description + `</p> 
                     `
-                    for(let z = 0; z < 5; z++){
-                        if(z >= producto.score){
+                    for(let i = 0; i < 5; i++){
+                        if(i >= producto.score){
                             htmlContentToAppend+=`<p class="fa fa-star">`
                         }else{
                             htmlContentToAppend+=`<p class="fa fa-star checked">`
@@ -135,10 +138,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                         <div class="d-block mb-4 h-100"> 
                         <a href="product-info.html?producto=`+ productos.name +`">
                                 <img class="img-fluid img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
-                            </a>                       
-                        <h4 class="mb-1">`+productos.name+`</h4>
+                            </a>  
+                            <div class="card">                     
+                            <h4 class="mb-1">`+productos.name+`</h4>
                             <p class="mb-1">`+productos.description+`</p>
                             <p class="mb-1">`+productos.cost+" "+productos.currency+`</p>
+                            </div>
                         </div>
                     </div> 
                 
