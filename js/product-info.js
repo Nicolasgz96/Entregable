@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                     </p>
                 
                     `
-                }
+                 }
                 document.getElementById("container comentarios").innerHTML = htmlContentToAppend;   
-            }
+                }
 
-            })
+            }) 
      
             //Muestra los productos relacionados
             getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -184,21 +184,21 @@ document.addEventListener("submit", function(e){
     contenedorDeEstrellas = document.createElement('div');
     contenedorDeEstrellas.classList.add('estrellas');
     contenedorDeEstrellas.innerHTML =  `
-    <span class="fa fa-star " ></span>
-    <span class="fa fa-star " ></span>
-    <span class="fa fa-star" ></span>
-    <span class="fa fa-star" ></span>
-    <span class="fa fa-star" ></span>
-    ` ;
+        <span class="fa fa-star " ></span>
+        <span class="fa fa-star " ></span>
+        <span class="fa fa-star" ></span>
+        <span class="fa fa-star" ></span>
+        <span class="fa fa-star" ></span>
+        ` ;
     let htmlContentToAppend = "";
     htmlContentToAppend +=`
     <p>
-    <div class="border">                           
-    <p class="card-title"> <span class="nombre">` + elNombre +`</span></p>                
-    <p class="card-text">` + comentData + `</p> 
-    <p <span id="estrellas" > 
-    <p <span class="align">` + date + " " + time +`</span> </p>                                                             
-    </div>
+        <div class="border">                           
+            <p class="card-title"> <span class="nombre">` + elNombre +`</span></p>                
+            <p class="card-text">` + comentData + `</p> 
+            <p <span id="estrellas"> 
+            <p <span class="align">` + date + " " + time +`</span> </p>                                                             
+        </div>
     </p>
     `;
     document.getElementById("container comentarios").innerHTML += htmlContentToAppend;  
