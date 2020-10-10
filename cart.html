@@ -42,14 +42,118 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="container">
+      <div class="text-center p-4">
+        <h2>Carrito</h2>
+        <p class="lead">A continuación, veras un producto precargado en tu carrito.</p>
+      </div>
+    <form id="carrito-msg">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 order-md-1">
+              <br>
+                <h3 class="text-center">Tus artículos:</h3>
+                <hr>
+                <br>
+                  <div id="carrito" class="list-group"></div>
+                  <hr>
+                <h5 class="mb-3">Metodo de envio:</h5>
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                      <input id="estandar" name="publicationType" type="radio" class="custom-control-input" checked required>
+                      <label class="custom-control-label" for="estandar">Standard (5%)</label>
+                    </div>                                                
+                    <div class="custom-control custom-radio">
+                      <input id="express" name="publicationType" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="express">Express (7%)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="premium" name="publicationType" type="radio" class="custom-control-input" required>
+                      <label class="custom-control-label" for="premium">Premium (15%)</label>
+                    </div>
+                    <div class="row">
+                      <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+                    </div>
+                    <br><br>
+                    <h5 class="mb-3">Metodos de pagos:</h5>
+                    <select class="custom-select d-block w-100" id="metodoPago" required>
+                      <option value="">Elija un metodo...</option>
+                      <option>Tarjeta de credito</option>
+                      <option>Transferencia bancaria</option>
+                    </select>
+                    <br><br>
+                    
+                      <fieldset>
+                        <legend>Datos personales</legend>
+                        <p>Direccion: <br><input type="street-address" size="30" placeholder="Ingrese calle, número, esquina" required></p>
+                        <p>Pais: <br><input type="country-name" required></p>
+                      </fieldset>
+          
+                    <br><br>
+                    <h5 class="mb-3">Costos:</h5>
+                  <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <p class="text-right">Sub-total: <span id="sub-total"></span> <span id="moneda"></span></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h6 class="my-0">Porcentaje envio</h6>
+                        <small class="text-muted">Según el tipo de envio</small>
+                      </div>
+                      <span class="text-muted" id="comissionPorcentaje"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <p class="text-right">Total: <span id="totalMoneda"></span> <span id="totalCurrancy"></span></p>
+                    </li>
+                  </ul>
+                  <button type="submit" class="btn btn-primary btn-lg">Comprar</button>
+              </div>
+          </div>
+      </form>
     </div>
+
+    <div class="alert fade" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
   </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Condiciones de envio</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+         
+          <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <h5 class="text-secondary">Standard (5%)</h5>
+                    <p class="muted text-justify"> Standard (12 a 15 días) - Costo del 5% sobre el subtotal. 
+                    </p>
+                </div>
+                <hr>
+                <div class="row">
+                    <h5 class="text-primary">Express (7%)</h5>
+                    <p class="muted text-justify">Express (5-8 días) - Costo del 7% sobre el subtotal.</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <h5 class="text-warning">Premium (15%)</h5>
+                    <p class="muted text-justify"> Premium (2-5 días) - Costo del 15% sobre el subtotal.</p>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

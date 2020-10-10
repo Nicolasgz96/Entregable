@@ -193,8 +193,12 @@ left: 50%;
 transform: translate(-50%, 0);
 }
 
-.text-center{
+div.text-center{
 background-color: rgb(245, 246, 246);
+}
+
+.text-center{
+  font-weight: bold;
 }
 
 .lds-ring {

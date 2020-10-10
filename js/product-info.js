@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             productInfo = resultObj.data;
+            console.log(productInfo)
 
             let productNameHTML  = document.getElementById("categoryName");
             let productNameeHTML  = document.getElementById("categoryNamee");
@@ -157,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     var mandoMensaje = "Usted mando el mensaje correctamente."//es el mensaje que quiero que aparezca
     var form_id = document.getElementById("preguntaVendedor")//este es el id del form del e-mail
     let infoMissing = false;//declaro un booleano 
+    let msgToShowHTML = document.getElementById("resultSpan");
 
     function getComent(){//funcion para que valide si se envio el mensaje (e-mail)
       if(form_id===""){//se fija si los campos estan vacios
@@ -164,7 +166,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         infoMissing = true;//pide que ingreses los campos
       }else{
        (!infoMissing);//si no estan vacios
-       return alert(mandoMensaje);//mando la alerta
+        document.getElementById("alertResult").classList.add('alert-success');
+        document.getElementById("alertResult").classList.add("show");
+        msgToShowHTML.innerHTML = mandoMensaje;
       }
   };
 document.getElementById('preguntaVendedor').addEventListener('submit', getComent);//agrega un evento para el boton submit con la funcion de arriba
