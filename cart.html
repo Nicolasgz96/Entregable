@@ -70,29 +70,17 @@
                       <input id="premium" name="publicationType" type="radio" class="custom-control-input" required>
                       <label class="custom-control-label" for="premium">Premium (15%)</label>
                     </div>
+                    <br><br>
                     <div class="row">
                       <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
                     </div>
-                    <br><br>
-                    <h5 class="mb-3">Metodos de pagos:</h5>
-                    <select class="custom-select d-block w-100" id="metodoPago" required>
-                      <option value="">Elija un metodo...</option>
-                      <option>Tarjeta de credito</option>
-                      <option>Transferencia bancaria</option>
-                    </select>
-                    <br><br>
-                    
-                      <fieldset>
-                        <legend>Datos personales</legend>
-                        <p>Direccion: <br><input type="street-address" size="30" placeholder="Ingrese calle, número, esquina" required></p>
-                        <p>Pais: <br><input type="country-name" required></p>
-                      </fieldset>
-          
-                    <br><br>
                     <h5 class="mb-3">Costos:</h5>
                   <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                      <p class="text-right">Sub-total: <span id="sub-total"></span> <span id="moneda"></span></p>
+                      <div>
+                        <h6 class="my-0">Sub-total</h6>
+                      </div>
+                      <span id="sub-total"></span> 
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                       <div>
@@ -102,10 +90,67 @@
                       <span class="text-muted" id="comissionPorcentaje"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                      <p class="text-right">Total: <span id="totalMoneda"></span> <span id="totalCurrancy"></span></p>
+                      <h6 class="my-0">Total</h6>
+                      <div>
+                        <span id="totalMoneda"></span> 
+                      </div>
                     </li>
                   </ul>
-                  <button type="submit" class="btn btn-primary btn-lg">Comprar</button>
+                  <h5 class="mb-3">Forma de Pago:</h5>
+                    <p  id="elegirCompra">No has seleccionado un <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a></p>
+                  <br>
+                  <button class="btn btn-primary btn-lg" type="submit">Finalizar compra</button>
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="creditCard">
+                            <div class="form-group">
+                                <input id="credit" value="Tarjeta de credito" name="tarjeta-banco" type="radio" required>
+                                <label for="credit">Tarjeta de credito</label>
+                              <hr>
+                              <div class="container">
+                                <div class="row">
+                                    <div class="form-group">
+                                      <label  for="card">Numero de tarjeta</label>
+                                      <input class="form-control" type="number" name="" id="card" required>
+                                      <label  for="cardNumber">Codigo de seg.</label>
+                                      <input class="form-control" name="minimo" type="number" id="cardNumber" required>
+                                      <label  for="month">Vencimiento (MM/AA)</label>
+                                      <input class="form-control" type="month" name="" id="month" required>    
+                                    </div>
+                                  </div>
+                              </div>
+                            </form>
+                            <form id="transferBanck"></form>
+                            <div class="form-group">
+                              <input id="transfer" value="Transferencia bancaria" name="tarjeta-banco" type="radio" required>
+                              <label for="transfer">Transferencia bancaria</label>
+                              <hr>
+                              <div class="container">
+                                <div class="row">
+                                    <div class="form-group">
+                                      <label  for="banck">Numero de cuenta</label>
+                                      <input class="form-control" type="number" name="" id="banck" required>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary" >Cerrar</button>
+                        </div>
+                      </div> 
+                    </div>
+                  </div> 
               </div>
           </div>
       </form>
