@@ -6,6 +6,15 @@
   font-weight: bold;
 }
 
+.remove-button{
+  background-color: #f44336;
+  margin:  30px 0px 0px 109px;
+  padding: 0 0 0 0px;
+  width: 25px; 
+  height: 25px;
+  border: solid 1px black;
+}
+
 .jumbotron {
 height: 50vh;
 padding: 5em inherit;

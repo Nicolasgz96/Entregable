@@ -31,9 +31,10 @@ function showImagesGallery(array){
             indicator=`
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             `
-        }else{
+        }
+        else {
             indicator+=`
-            <li data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="`+ i +`"></li>
             `
         }
         for(let i = 0; i < array.length; i++){
@@ -41,12 +42,13 @@ function showImagesGallery(array){
             if (i == 0){
                 imagesToApend =`
                 <div class="carousel-item active">
-                    <img src="`+imagenes+`" class="d-block " alt="">
+                    <img src="`+ imagenes +`" class="d-block " alt="">
                  </div>
                 `
-            }else{imagesToApend +=`
+            }
+            else {imagesToApend +=`
             <div class="carousel-item">
-                <img src="`+imagenes+`" class="d-block" alt="">
+                <img src="`+ imagenes +`" class="d-block" alt="">
             </div>
             `
 
@@ -107,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                     for(let i = 0; i < 5; i++){
                         if(i >= producto.score){
                             htmlContentToAppend+=`<p class="fa fa-star">`
-                        }else{
+                        }
+                        else {
                             htmlContentToAppend+=`<p class="fa fa-star checked">`
                         }
                     }
@@ -164,7 +167,8 @@ document.addEventListener("DOMContentLoaded", function(e){
       if(form_id===""){//se fija si los campos estan vacios
         (form_id.classList.add('is-invalid'))//si estan vacios el formulario
         infoMissing = true;//pide que ingreses los campos
-      }else{
+      }
+      else {
        (!infoMissing);//si no estan vacios
         document.getElementById("alertResult").classList.add('alert-success');
         document.getElementById("alertResult").classList.add("show");
