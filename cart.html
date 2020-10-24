@@ -47,8 +47,7 @@
         <h2>Carrito</h2>
         <p class="lead">A continuación, veras productos precargado en tu carrito.</p>
       </div>
-    
-          <form id="carrito-msg" method="GET">
+          <form id="carrito-msg" action="" method="GET">
             <div class="row justify-content-md-center">
               <div class="col-md-8 order-md-1">
                 <br>
@@ -72,27 +71,9 @@
                         <label class="custom-control-label" for="premium">Premium (15%)</label>
                     </div>
                     <br><br>
-                    <div class="d-block my-3">
-                      <div class="custom-control">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre, (Segundo nombre Opcional)" class="form-control" required>
-                      </div>
-                      <div class="custom-control">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" class="form-control" required>
-                      </div>
-                      <div class="custom-control">
-                        <label for="direccion">Dirección</label>
-                        <input type="text" id="direccion" name="direccion" placeholder="Calle, N°Puerta" class="form-control" required>
-                      </div>
-                      <div class="custom-control custom radio">
-                        <label for="pais">País</label>
-                        <input type="text" id="pais" name="pais" class="form-control" required>
-                      </div>
+                    <div class="row">
+                      <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
                     </div>
-                      <div class="row">
-                        <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
-                      </div>
                       <h5 class="mb-3">Costos:</h5>
                       <ul class="list-group mb-3">
                       <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -115,9 +96,28 @@
                         </div>
                       </li>
                       </ul>
+                      <br>
+                      <div class="d-block my-3">
+                        <div class="custom-control">
+                          <h5 class="text-center">Rellene con sus datos</h5>
+                          <label for="nombre">Nombre</label>
+                          <input type="text" id="nombre" name="nombre" placeholder="Nombre, (Segundo nombre Opcional)" class="form-control" required>
+                        </div>
+                        <div class="custom-control">
+                          <label for="apellido">Apellido</label>
+                          <input type="text" id="apellido" name="apellido" class="form-control" required>
+                        </div>
+                        <div class="custom-control">
+                          <label for="direccion">Dirección</label>
+                          <input type="text" id="direccion" name="direccion" placeholder="Calle, N°Puerta" class="form-control" required>
+                        </div>
+                        <div class="custom-control custom radio">
+                          <label for="pais">País</label>
+                          <input type="text" id="pais" name="pais" class="form-control" required>
+                        </div>
+                      </div>
                         <h5 class="mb-3">Forma de Pago:</h5>
-                        <p  id="elegirCompra">No has seleccionado un método <a href="#exampleModal" data-toggle="modal">Métodos de pagos</a></p>
-                        <div style="color: red;" id="muestroAlerta"></div>
+                        <p  id="elegirCompra" style="color: red;">Por favor seleccione algún Forma de pago <a href="#exampleModal" data-toggle="modal" >Métodos de pagos</a></p>
                       <br>
                       <button class="btn btn-primary btn-lg" id="compraChequeo" type="submit">Finalizar compra</button>
                </div>
@@ -135,7 +135,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <!-- <form id="creditCard"> -->
+                 
                     <div class="form-group">
                         <input id="credit" form="carrito-msg" value="Tarjeta de credito" name="tarjeta-banco" type="radio" required>
                           <label for="credit">Tarjeta de crédito</label>
@@ -152,8 +152,7 @@
                             </div>
                           </div>
                       </div>
-                  <!-- </form> -->
-                    <!-- <form id="transferBanck"> -->
+               
                       <div class="form-group">
                         <input id="transfer" form="carrito-msg" value="Transferencia bancaria" name="tarjeta-banco" type="radio" required>
                         <label for="transfer">Transferencia bancaria</label>
@@ -167,10 +166,10 @@
                           </div>
                         </div>
                       </div>
-                    <!-- </form> -->
+                    
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" id="modal-submit" form="carrito-msg" class="btn btn-primary" >Comprar</button>
+                    <button type="submit" id="modal" form="carrito-msg" class="btn btn-primary" >Comprar</button>
                   </div>
                 </div> 
               </div>

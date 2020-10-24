@@ -1,7 +1,6 @@
 const subTotal = document.getElementById("sub-total");
 const totalFinal = document.getElementById("totalMoneda");
-const porcentajeTotal = document.getElementById("comissionPorcentaje");
-const signoPorcentaje = " %";
+const porcentajeTotal = document.getElementById("comissionPorcentaje"); 
 const symboloPesos = " UYU";
 
 let comissionEstandar = 0.05;
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                         
                     }
                     subTotal.innerHTML = sumatoria + symboloPesos
-                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                     totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML) + symboloPesos
                             
                 })
@@ -128,35 +127,35 @@ document.addEventListener("DOMContentLoaded", function(e){
                         
                     }
                     subTotal.innerHTML = sumatoria + symboloPesos
-                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                     totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML) + symboloPesos
                             
                 })
             
             };
 
-            porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+            porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
             totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
 
             //asigno los calculos para los porcentajes
 
                document.getElementById("estandar").addEventListener("change", function(){
                 comissionActual = comissionEstandar;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML) + symboloPesos
                               
             });
 
             document.getElementById("express").addEventListener("change", function(){
                 comissionActual = comissionExpress;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
 
             });
 
             document.getElementById("premium").addEventListener("change", function(){
                 comissionActual = comissionPremium;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
             }); 
         
@@ -206,35 +205,35 @@ document.addEventListener("DOMContentLoaded", function(e){
                         
                     }
                     subTotal.innerHTML = sumatoria + symboloPesos
-                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                    porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                     totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML) + symboloPesos
                             
                 })
             
             };
 
-            porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+            porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
             totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
 
             //asigno los calculos para los porcentajes
 
                document.getElementById("estandar").addEventListener("change", function(){
                 comissionActual = comissionEstandar;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML) + symboloPesos
                               
             });
 
             document.getElementById("express").addEventListener("change", function(){
                 comissionActual = comissionExpress;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
 
             });
 
             document.getElementById("premium").addEventListener("change", function(){
                 comissionActual = comissionPremium;
-                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + signoPorcentaje
+                porcentajeTotal.innerHTML = parseInt(subTotal.innerHTML) * comissionActual + symboloPesos
                 totalFinal.innerHTML = parseInt(porcentajeTotal.innerHTML) + parseInt(subTotal.innerHTML)  + symboloPesos
             }); 
         }
@@ -247,14 +246,14 @@ let eleccion = document.getElementById("transfer");
 
 eleccion.addEventListener("click", function(){
     var bancaria = document.getElementById("transfer").value
-    document.getElementById("elegirCompra").innerHTML = bancaria + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
+    document.getElementById("elegirCompra").innerHTML = bancaria.fontcolor('green') + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
 });
 
 let eleccionCredito = document.getElementById("credit"); 
 
 eleccionCredito.addEventListener("click", function(){
     var bancaria = document.getElementById("credit").value
-    document.getElementById("elegirCompra").innerHTML = bancaria + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
+    document.getElementById("elegirCompra").innerHTML = bancaria.fontcolor('green') + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
 });
 
 //fijo los campos para la validacion
@@ -273,53 +272,35 @@ document.getElementById('transfer').addEventListener('input', function(){
     document.getElementById('banck').removeAttribute('disabled');
 });
 
-let botonModal = document.getElementById('modal-submit');
-botonModal.addEventListener('click', function(){
-    sessionStorage.setItem("metodoCompletado", "1");
-});
+// mando mensaje si los campos no estan vacios
 
-let compraBoton = document.getElementById('compraChequeo');
-compraBoton.addEventListener('click', function(e){
-    let mostartMensaje = document.getElementById('muestroAlerta');
-    e.preventDefault();
-    let metodoDePago = sessionStorage.getItem("metodoCompletado");
-    if(metodoDePago === "1"){
-        return true;
-    }
-    else{
-        mostartMensaje.innerHTML = "Rellena los datos de pago";
-        return false;
-    }
-  
-});
-
-//mando mensaje si los campos no estan vacios
+//---Para ver los datos en la URL Comente estas lineas------------------------
 
 getJSONData(CART_BUY_URL).then(function(resultObj) {
     let msgToShowHTML = document.getElementById("resultSpan");
     if (resultObj.status === "ok")
     {
         msg = resultObj.data.msg;
-        var tarjetaCredito = document.getElementById("pais");
-        let transferencia = document.getElementById("direccion");
-        let nombre = document.getElementById("nombre");
-        let apellido = document.getElementById("apellido");
+        var tarjetaCredito = document.getElementById("cardNumber");
+        let transferencia = document.getElementById("transfer");
+        let numTarjeta = document.getElementById("cardNumber");
+        let mes = document.getElementById("month");
         let infoMissing = false;//declaro un booleano
 
         function getCarrito(e){//funcion para que valide si se envio el mensaje (e-mail)
             e.preventDefault();
-            if(tarjetaCredito === "" && transferencia === "" && nombre ==="" && apellido === ""){//se fija si los campos estan vacios
+            if(tarjetaCredito === "" && transferencia === "" && numTarjeta ==="" && mes === ""){//se fija si los campos estan vacios
                 infoMissing = true;//pide que ingreses los campos
             }
             else {
                 (!infoMissing);//si no estan vacios
                 document.getElementById("alertResult").classList.add('alert-success');
                 document.getElementById("alertResult").classList.add("show");
-                $('#modal-submit').modal('hide')
                 msgToShowHTML.innerHTML = msg;
-            }
-            return true;
+             }
         };
         document.getElementById('carrito-msg').addEventListener('submit', getCarrito);//agrega un evento para el boton submit con la funcion de arriba
     }
 });
+
+//------------------------Fin---------------------------------------------------
