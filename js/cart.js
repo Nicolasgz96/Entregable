@@ -240,20 +240,20 @@ document.addEventListener("DOMContentLoaded", function(e){
     })
 });
 
-//le doy el valor del input al parrafo
+//mensaje que cambia al seleccionar tarjeta bancaria o tarjeta de credito
 
 let eleccion = document.getElementById("transfer"); 
+
+let eleccionCredito = document.getElementById("credit");
 
 eleccion.addEventListener("click", function(){
     var bancaria = document.getElementById("transfer").value
     document.getElementById("elegirCompra").innerHTML = bancaria.fontcolor('green') + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
 });
-
-let eleccionCredito = document.getElementById("credit"); 
-
+ 
 eleccionCredito.addEventListener("click", function(){
-    var bancaria = document.getElementById("credit").value
-    document.getElementById("elegirCompra").innerHTML = bancaria.fontcolor('green') + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
+    var eCredito = document.getElementById("credit").value
+    document.getElementById("elegirCompra").innerHTML = eCredito.fontcolor('green') + ` <a href="#exampleModal" data-toggle="modal">Metodos de pagos</a>`
 });
 
 //fijo los campos para la validacion
@@ -281,19 +281,11 @@ getJSONData(CART_BUY_URL).then(function(resultObj) {
     if (resultObj.status === "ok")
     {
         msg = resultObj.data.msg;
-        var tarjetaCredito = document.getElementById("cardNumber");
-        let transferencia = document.getElementById("transfer");
-        let numTarjeta = document.getElementById("cardNumber");
-        let mes = document.getElementById("month");
         let infoMissing = false;//declaro un booleano
 
         function getCarrito(e){//funcion para que valide si se envio el mensaje (e-mail)
             e.preventDefault();
-            if(tarjetaCredito === "" && transferencia === "" && numTarjeta ==="" && mes === ""){//se fija si los campos estan vacios
-                infoMissing = true;//pide que ingreses los campos
-            }
-            else {
-                (!infoMissing);//si no estan vacios
+            if(!infoMissing){//si no estan vacios
                 document.getElementById("alertResult").classList.add('alert-success');
                 document.getElementById("alertResult").classList.add("show");
                 msgToShowHTML.innerHTML = msg;
