@@ -51,12 +51,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                     product.splice(i, 1);
                     
                 if (product[0].currency === "USD") {
-                    totalPrice = product[0].unitCost * product[0].count * 40;
+                    totalPrice = product[0].unitCost * product[0].count * cambioUYU;
                 } else {
                     totalPrice = product[0].unitCost * product[0].count;
                 }
-                var subTotall = 0;
-                subTotall += totalPrice;
+                var totalNuevo = 0;
+                totalNuevo += totalPrice;
                 document.getElementById("carrito").innerHTML = `    
                 <div class="row">
                 <div class="col-3">
