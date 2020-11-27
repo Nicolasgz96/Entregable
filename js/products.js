@@ -47,21 +47,20 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){   
 
             htmlContentToAppend += `
-            <a href="product-info.html?producto= `+ product.name +`" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <a href="product-info.html?producto= `+ product.name +`" class="list-group-item list-group-item-action">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `"class="card-img-top">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ product.name +`</h4>
                             <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
                         </div>
                         <p class="mb-1">` + product.description + `</p>
                         <span class="align-bottom">` +"Total vendidos:"+" "+ product.soldCount + `</span>
-                    </div>
+                    </a>
                 </div>
-            </a>
+            </div>
+            <br>
             `
         }        
     }
@@ -151,21 +150,19 @@ const filtrar = ()=>{
         if(nombre.indexOf(texto)!== -1 || descripcion.indexOf(texto) !== -1){
             
             resultado.innerHTML += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <a href="product-info.html?producto= `+ producto.name +`" class="list-group-item list-group-item-action">
+                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `"class="card-img-top">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ producto.name +`</h4>
                             <small class="text-muted">` + producto.cost + " " + producto.currency + ` </small>
                         </div>
                         <p class="mb-1">` + producto.description + `</p>
-                        <span class="align-bottom">` +"Vendidos:"+" "+ producto.soldCount + `</span>
-                    </div>
+                        <span class="align-bottom">` +"Total vendidos:"+" "+ producto.soldCount + `</span>
+                    </a>
                 </div>
-            </a>
+            </div>
             `
         }
     }

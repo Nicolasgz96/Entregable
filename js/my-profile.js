@@ -82,12 +82,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
     const datosImagenUrl = localStorage.getItem("cambiarImagen");
 
     if(datosImagenUrl) {
-        document.querySelector("#imagen").setAttribute("src", datosImagenUrl);
+        document.getElementById("imagen").setAttribute("src", datosImagenUrl);
     }
 });
 
 //Funcion para seleccionar la imagen
-document.querySelector('#inputId').addEventListener("change", function(){
+document.getElementById('inputId').addEventListener("change", function(){
     const reader = new FileReader();
 
     reader.addEventListener("load", () => {

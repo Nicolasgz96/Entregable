@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             productInfo = resultObj.data;
-            console.log(productInfo)
 
             let productNameHTML  = document.getElementById("categoryName");
             let productNameeHTML  = document.getElementById("categoryNamee");
