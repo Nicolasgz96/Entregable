@@ -49,7 +49,7 @@ function showCategoriesList(){
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="card">
                             <a href="product-info.html?producto= `+ product.name +`" class="list-group-item list-group-item-action">
-                                <img src="static/` + product.imgSrc + `" alt=""class="card-img-top">
+                                <img src="` + product.imgSrc + `" alt=""class="card-img-top">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h4 class="mb-1">`+ product.name +`</h4>
                                     <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
@@ -153,7 +153,7 @@ const filtrar = ()=>{
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
                     <a href="product-info.html?producto= `+ producto.name +`" class="list-group-item list-group-item-action">
-                        <img src="static/` + producto.imgSrc + `" alt=""class="card-img-top">
+                        <img src="` + producto.imgSrc + `" alt=""class="card-img-top">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ producto.name +`</h4>
                             <small class="text-muted">` + producto.cost + " " + producto.currency + ` </small>

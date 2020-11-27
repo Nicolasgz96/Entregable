@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 htmlContentToAppend +=`
                 <div class="row">
                     <div class="col-3">
-                        <img src="static/` + productos.src + `" alt="" class="img-thumbnail">
+                        <img src="` + productos.src + `" alt="" class="img-thumbnail">
                     </div>
                         <div class="col">
                             <div class="d-flex w-100 justify-content-between">
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("carrito").innerHTML = `    
     <div class="row">
     <div class="col-3">
-        <img src="static/` + product[0].src + `" alt="" class="img-thumbnail">
+        <img src="` + product[0].src + `" alt="" class="img-thumbnail">
     </div>
         <div class="col">
             <div class="d-flex w-100 justify-content-between">

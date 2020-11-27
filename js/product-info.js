@@ -42,13 +42,13 @@ function showImagesGallery(array){
             if (i == 0){
                 imagesToApend =`
                 <div class="carousel-item active">
-                    <img src="static/`+ imagenes +`" class="d-block " alt="">
+                    <img src="`+ imagenes +`" class="d-block " alt="">
                  </div>
                 `
             }
             else {imagesToApend +=`
             <div class="carousel-item">
-                <img src="static/`+ imagenes +`" class="d-block" alt="">
+                <img src="`+ imagenes +`" class="d-block" alt="">
             </div>
             `
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                     <div class="col-lg-3 col-md-4 col-6">  
                         <div class="d-block mb-4 h-100"> 
                         <a href="product-info.html?producto=`+ productos.name +`">
-                                <img class="img-thumbnail" src="static/`+productos.imgSrc+`" alt="productos.name">
+                                <img class="img-thumbnail" src="`+productos.imgSrc+`" alt="productos.name">
                             </a>  
                             <div class="card">                     
                             <h4 class="mb-1">`+productos.name+`</h4>
