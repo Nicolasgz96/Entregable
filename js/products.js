@@ -44,28 +44,28 @@ function showCategoriesList(){
         let product = currentCategoriesArray[i];
         //aca en el if declaro que si ingreso un valor en los campos de mincount y maxcount me devuelvan un entero con el parseInt ya que comprueba el array donde le específico ir
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) && 
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){   
-
-            htmlContentToAppend += `
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <a href="product-info.html?producto= `+ product.name +`" class="list-group-item list-group-item-action">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `"class="card-img-top">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){  
+                    htmlContentToAppend += `
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card">
+                            <a href="product-info.html?producto= `+ product.name +`" class="list-group-item list-group-item-action">
+                                <img src="static/` + product.imgSrc + `" alt=""class="card-img-top">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">`+ product.name +`</h4>
+                                    <small class="text-muted">` + product.cost + " " + product.currency + ` </small>
+                                </div>
+                                <p class="mb-1">` + product.description + `</p>
+                                <span class="align-bottom">` +"Total vendidos:"+" "+ product.soldCount + `</span>
+                            </a>
                         </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <span class="align-bottom">` +"Total vendidos:"+" "+ product.soldCount + `</span>
-                    </a>
-                </div>
-            </div>
-            <br>
-            `
-        }        
+                    </div>
+                    
+                    `
+        }   
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;     
     }
-    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
 }
+
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
@@ -153,7 +153,7 @@ const filtrar = ()=>{
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
                     <a href="product-info.html?producto= `+ producto.name +`" class="list-group-item list-group-item-action">
-                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `"class="card-img-top">
+                        <img src="static/` + producto.imgSrc + `" alt=""class="card-img-top">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ producto.name +`</h4>
                             <small class="text-muted">` + producto.cost + " " + producto.currency + ` </small>
